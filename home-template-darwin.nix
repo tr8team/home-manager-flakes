@@ -1,11 +1,5 @@
 { config, pkgs, atomi, user_config, ... }:
 
-# ####################
-# # Upstream Mutator #
-# ####################
-
-# let mutator = import ./upstream.nix; in
-
 ##############################
 # Import additional modules  #
 ##############################
@@ -17,6 +11,10 @@ with atomi;
 
 let
   output = {
+    home.stateVersion = "23.11";
+    home.username = "${user_config.user}";
+    home.homeDirectory = "/home/${user_config.user}";
+
     #########################
     # Install packages here #
     #########################
@@ -170,4 +168,3 @@ let
   };
 in
 output
-# mutator { outputs = output; system = user_config.system; nixpkgs = pkgs; }
