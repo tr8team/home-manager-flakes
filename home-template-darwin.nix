@@ -13,7 +13,7 @@ let
   output = {
     home.stateVersion = "23.11";
     home.username = "${user_config.user}";
-    home.homeDirectory = "/home/${user_config.user}";
+    home.homeDirectory = "/Users/${user_config.user}";
 
     #########################
     # Install packages here #
