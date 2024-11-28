@@ -1,11 +1,11 @@
 {
   # This is your machine's user, $USER
-  user = "ernest";
+  user = "christian";
   # This is your GitHub user
-  email = "kirinnee97@gmail.com";
+  email = "christian@tr8.io";
   # This is your GitHub username and your git sign-off
-  gituser = "kirinnee";
+  gituser = "tr8teja";
   # System target, see README
-  arch = "x86_64";
-  kernel = "linux";
+  arch = "aarch64";
+  kernel = "darwin";
 }
