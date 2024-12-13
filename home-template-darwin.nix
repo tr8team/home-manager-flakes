@@ -21,6 +21,7 @@ let
     home.packages = [
       # System requirements
       coreutils
+      uutils-coreutils
 
       # ESD Tooling
       kubernetes-helm
@@ -28,11 +29,17 @@ let
       cachix
       kubectl
       docker
+
+      # Apps
+      vscode
     ];
     ##################################################
     # Addtional environment variables for your shell #
     ##################################################
-    home.sessionVariables = { };
+    home.sessionVariables = {
+      NIXPKGS_ALLOW_UNFREE = "1";
+      NVM_DIR = "$HOME/.nvm";
+    };
 
     #################################
     # Addtional PATH for your shell #
@@ -40,6 +47,8 @@ let
     home.sessionPath = [
       "$HOME/.local/bin"
       "$HOME/.krew/bin"
+      "$HOME/Library/flutter/bin"
+      "/Applications/Geany.app/Contents/MacOS"
     ];
 
     ##########################
@@ -69,7 +78,10 @@ let
 
         # Add ~/.zshrc here
         initExtra = ''
-      '';
+          . ~/.nvm/nvm.sh
+          # Ruby
+          eval "$(rbenv init -)"
+        '';
 
         # Oh-my-zsh configurations
         oh-my-zsh = {
@@ -103,7 +115,7 @@ let
             file = ".p10k.zsh";
           }
           # live autocomplete
-          liveAutoComplete
+          #liveAutoComplete
         ];
 
         # ZSH ZPlug Plugins

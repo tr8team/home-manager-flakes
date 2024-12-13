@@ -27,6 +27,9 @@ let
       cachix
       kubectl
       docker
+      # Apps
+      vscode
+      nodejs
     ];
 
     ############
