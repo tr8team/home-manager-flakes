@@ -28,7 +28,7 @@ let
       cachix
       kubectl
       docker
-      nodejs-18_x
+      nodejs_22
     ];
     ##################################################
     # Addtional environment variables for your shell #
