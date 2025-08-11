@@ -11,7 +11,7 @@ with atomi;
 
 let
   output = {
-    home.stateVersion = "23.11";
+    home.stateVersion = "25.05";
     home.username = "${user_config.user}";
     home.homeDirectory = "/home/${user_config.user}";
 
@@ -101,8 +101,8 @@ let
 
         # Aliases
         shellAliases = {
-          hms = "nix run home-manager/release-23.11 -- switch";
-          hmsz = "nix run home-manager/release-23.11 -- switch && source ~/.zshrc";
+          hms = "nix run home-manager/release-25.05 -- switch";
+          hmsz = "nix run home-manager/release-25.05 -- switch && source ~/.zshrc";
           configterm = "POWERLEVEL9K_CONFIG_FILE=\"$HOME/home-manager-config/p10k-config/.p10k.zsh\" p10k configure";
         };
 

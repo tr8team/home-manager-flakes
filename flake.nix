@@ -16,7 +16,7 @@
     atomipkgs.url = "github:kirinnee/test-nix-repo/v22.2.0";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
