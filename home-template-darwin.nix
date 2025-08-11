@@ -41,6 +41,7 @@ let
     home.sessionPath = [
       "$HOME/.local/bin"
       "$HOME/.krew/bin"
+      "$HOME/.npm-global/bin"
     ];
 
     ##########################
@@ -92,6 +93,8 @@ let
         shellAliases = {
           hms = "nix run home-manager/release-25.05 -- switch";
           hmsz = "nix run home-manager/release-25.05 -- switch && source ~/.zshrc";
+          # npm global install location setup
+          npm-global-setup = "mkdir -p $HOME/.npm-global && npm config set prefix '$HOME/.npm-global'";
           configterm = "POWERLEVEL9K_CONFIG_FILE=\"$HOME/home-manager-config/p10k-config/.p10k.zsh\" p10k configure";
         };
 

@@ -51,6 +51,7 @@ let
     home.sessionPath = [
       "$HOME/.local/bin"
       "$HOME/.krew/bin"
+      "$HOME/.npm-global/bin"
     ];
 
     ##########################
