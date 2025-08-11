@@ -79,8 +79,7 @@ let
         enableCompletion = false;
 
         # Add ~/.zshrc here
-        initExtra = ''
-      '';
+        initContent = "";
 
         # Oh-my-zsh configurations
         oh-my-zsh = {
