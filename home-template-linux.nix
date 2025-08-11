@@ -159,7 +159,7 @@ let
       # enable exa
       eza = {
         enable = true;
-        enableAliases = true;
+        enableZshIntegration = true;
       };
 
       # enable fzf
