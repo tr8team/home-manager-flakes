@@ -11,6 +11,10 @@ with atomi;
 
 let
   output = {
+    # Allow only the unfree package we need
+    nixpkgs.config.allowUnfreePredicate = pkg: pkgs.lib.elem (pkgs.lib.getName pkg) [
+      "claude-code"
+    ];
     home.stateVersion = "25.05";
     home.username = "${user_config.user}";
     home.homeDirectory = "/home/${user_config.user}";
@@ -43,9 +47,7 @@ let
     ##################################################
     # Addtional environment variables for your shell #
     ##################################################
-    home.sessionVariables = {
-      NPM_CONFIG_PREFIX = "$HOME/.npm-global";
-    };
+    home.sessionVariables = { };
 
     #################################
     # Addtional PATH for your shell #
@@ -53,13 +55,7 @@ let
     home.sessionPath = [
       "$HOME/.local/bin"
       "$HOME/.krew/bin"
-      "$HOME/.npm-global/bin"
     ];
-
-    # Ensure npm uses a writable global prefix
-    home.file.".npmrc".text = ''
-      prefix=${config.home.homeDirectory}/.npm-global
-    '';
 
     ##########################
     # Program Configurations #

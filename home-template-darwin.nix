@@ -11,6 +11,10 @@ with atomi;
 
 let
   output = {
+    # Allow only the unfree package we need
+    nixpkgs.config.allowUnfreePredicate = pkg: pkgs.lib.elem (pkgs.lib.getName pkg) [
+      "claude-code"
+    ];
     home.stateVersion = "25.05";
     home.username = "${user_config.user}";
     home.homeDirectory = "/Users/${user_config.user}";
@@ -28,14 +32,12 @@ let
       cachix
       kubectl
       docker
-      nodejs_22
+      claude-code
     ];
     ##################################################
     # Addtional environment variables for your shell #
     ##################################################
-    home.sessionVariables = {
-      NPM_CONFIG_PREFIX = "$HOME/.npm-global";
-    };
+    home.sessionVariables = { };
 
     #################################
     # Addtional PATH for your shell #
@@ -43,13 +45,7 @@ let
     home.sessionPath = [
       "$HOME/.local/bin"
       "$HOME/.krew/bin"
-      "$HOME/.npm-global/bin"
     ];
-
-    # Ensure npm uses a writable global prefix
-    home.file.".npmrc".text = ''
-      prefix=${config.home.homeDirectory}/.npm-global
-    '';
 
     ##########################
     # Program Configurations #
@@ -100,8 +96,6 @@ let
         shellAliases = {
           hms = "nix run home-manager/release-25.05 -- switch";
           hmsz = "nix run home-manager/release-25.05 -- switch && source ~/.zshrc";
-          # npm global install location setup
-          npm-global-setup = "mkdir -p $HOME/.npm-global && npm config set prefix '$HOME/.npm-global'";
           configterm = "POWERLEVEL9K_CONFIG_FILE=\"$HOME/home-manager-config/p10k-config/.p10k.zsh\" p10k configure";
         };
 
