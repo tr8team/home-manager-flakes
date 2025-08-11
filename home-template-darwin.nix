@@ -33,7 +33,9 @@ let
     ##################################################
     # Addtional environment variables for your shell #
     ##################################################
-    home.sessionVariables = { };
+    home.sessionVariables = {
+      NPM_CONFIG_PREFIX = "$HOME/.npm-global";
+    };
 
     #################################
     # Addtional PATH for your shell #
@@ -43,6 +45,11 @@ let
       "$HOME/.krew/bin"
       "$HOME/.npm-global/bin"
     ];
+
+    # Ensure npm uses a writable global prefix
+    home.file.".npmrc".text = ''
+      prefix=${config.home.homeDirectory}/.npm-global
+    '';
 
     ##########################
     # Program Configurations #
