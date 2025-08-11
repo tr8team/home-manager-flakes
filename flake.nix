@@ -13,9 +13,6 @@
     nixpkgs-feb-05-24.url = "nixpkgs/057f9aecfb71c4437d2b27d3323df7f93c010b7e";
     upstreampkgs.url = "github:tr8team/home-manager-upstream";
 
-    # Claude Code Home Manager module
-    claude-nix.url = "github:flyinggrizzly/claude-nix";
-
     atomipkgs.url = "github:kirinnee/test-nix-repo/v22.2.0";
 
     home-manager = {
@@ -37,7 +34,6 @@
     , nixpkgs-feb-05-24
     , atomipkgs
     , upstreampkgs
-    , claude-nix
     , home-manager
     } @inputs:
     let user_config = import ./user_config.nix; in
@@ -54,14 +50,7 @@
       homeConfigurations = {
         "${user_config.user}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
-            # Claude Code module and defaults
-            inputs.claude-nix.homeManagerModules.claude-code
-            ./home.nix
-            ({ ... }: {
-              programs.claude-code.enable = true;
-            })
-          ];
+          modules = [ ./home.nix ];
           extraSpecialArgs = {
             inherit atomi user_config upstream;
           };
