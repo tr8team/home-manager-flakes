@@ -8,7 +8,7 @@
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-2305.url = "nixpkgs/nixos-23.05";
     nixpkgs-feb-05-24.url = "nixpkgs/057f9aecfb71c4437d2b27d3323df7f93c010b7e";
     upstreampkgs.url = "github:tr8team/home-manager-upstream";
