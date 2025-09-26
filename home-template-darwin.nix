@@ -32,7 +32,10 @@ let
       cachix
       kubectl
       docker
-      claude-code
+      gh
+
+      # JavaScript runtime and package manager
+      bun
     ];
     ##################################################
     # Addtional environment variables for your shell #

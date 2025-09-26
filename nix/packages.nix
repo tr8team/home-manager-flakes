@@ -10,21 +10,15 @@ let
           pls;
       }
     );
-    nix-2305 = (
-      with pkgs-2305;
-      { }
-    );
-    feb-05-24 = (
-      with pkgs-feb-05-24;
+    nix-2505 = (
+      with pkgs;
       {
         inherit
           coreutils
           gnugrep
           bash
           jq
-
           git
-
           treefmt
           shellcheck
           ;
@@ -33,6 +27,5 @@ let
   };
 in
 with all;
-nix-2305 //
 atomipkgs //
-feb-05-24
+nix-2505

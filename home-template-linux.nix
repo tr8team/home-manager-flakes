@@ -177,6 +177,7 @@ let
         enableZshIntegration = true;
         options = [ "--cmd cd" ];
       };
+
     };
   };
 in
